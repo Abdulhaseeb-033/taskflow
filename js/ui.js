@@ -1,8 +1,16 @@
 
 const taskList = document.querySelector("#taskList");
+const emptyState = document.querySelector("#emptyState");
 
 export function renderTasks(tasks) {
     taskList.innerHTML = "";
+
+    if (tasks.length === 0) {
+        emptyState.hidden = false;
+        return;
+    }
+
+    emptyState.hidden = true;
 
     tasks.forEach(task => {
         const taskCard = document.createElement("div");
